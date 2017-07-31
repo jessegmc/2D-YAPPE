@@ -61,4 +61,3 @@ Below I have a copy of the input deck whose values I perturb around in runs 1-10
     s.input.freqbd = 1; %toggle the absorbing frequency boundary on and off
     s.input.freqbd_length = .005; %set absorption length in cm
     s.input.freqbd_width = .1; %fractional value of boundary width (boundary width/total bandwidth)
-

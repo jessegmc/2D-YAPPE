@@ -64,6 +64,5 @@ for n = 1:size(v.r1.f.E_out,3)
     legend(legend_cell)
     
     
-    
     pause
 end

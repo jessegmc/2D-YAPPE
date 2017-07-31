@@ -39,4 +39,5 @@ function [s] = input_deck_YAPPE()
     s.input.freqbd_length = .005; %set absorption length in cm
     s.input.freqbd_width = .1; %fractional value of boundary width (boundary width/total bandwidth)
 
+    
 end

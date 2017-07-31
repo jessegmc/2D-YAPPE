@@ -68,6 +68,5 @@ function[s] = dispersion_YAPPE(s)
         s.g.perm = ( sqrt(s.g.perm) + 1i*n_absorb ).^2; %modify permittivity to yield imaginary index
     
     end
-    
-    
+      
 end

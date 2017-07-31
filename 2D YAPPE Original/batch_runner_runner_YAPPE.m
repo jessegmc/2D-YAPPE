@@ -49,7 +49,7 @@ for m = runs
     s.input.outpath = strcat(maindir,'run',32, num2str(m),'/');    
     batch_runner_YAPPE();
     m
-    
+  
 end
 
 h = toc
