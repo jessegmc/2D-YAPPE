@@ -70,5 +70,4 @@ function[s] = dispersion_YAPPE(s)
     end
     
     
-    
 end

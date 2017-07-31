@@ -56,6 +56,5 @@ function[] = batch_runner_YAPPE()
     end    
     save(outputnam, 's');
 
-    disp('a million coupled ODEs cried out... and were solved')
-    
+    disp('a million coupled ODEs cried out... and were solved') 
 end
