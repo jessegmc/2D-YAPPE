@@ -7,7 +7,7 @@ function [s] = input_deck_YAPPE()
     s.input.xi_pts = 300; %number of pts along axial direction
     s.input.r_extent = .2; %radial window length in cm
     s.input.r_pts = 600; %number of pts along radial direction    
-    s.input.z_extent = 4; %extent of propagation in cm
+    s.input.z_extent = 2; %extent of propagation in cm
 
     %load E-field options
     s.input.lambda_vac = 800e-7; %vacuum central wavelength in cm
