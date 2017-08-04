@@ -7,7 +7,7 @@ function [s] = input_deck_YAPPE()
     s.input.xi_pts = 300; %number of pts along axial direction
     s.input.r_extent = .2; %radial window length in cm
     s.input.r_pts = 600; %number of pts along radial direction    
-    s.input.z_extent = 4; %extent of propagation in cm
+    s.input.z_extent = 0.1; %extent of propagation in cm
 
     %load E-field options
     s.input.lambda_vac = 800e-7; %vacuum central wavelength in cm
@@ -22,13 +22,13 @@ function [s] = input_deck_YAPPE()
     s.input.medium = 'water';
     
     %specify output path and output period
-    s.input.outpath = '~/YAPPE_outputs/Kolesik Water Simulations3/run 1/'; %output path
+    s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE\Run33\'; %output path
     s.input.outperiod = .05; %output period in cm
     
     %toggle dispersion, plasma and n2 propagation modules
     s.input.dispersion = 1;
-    s.input.plasma = 1;
-    s.input.n2 = 1;
+    s.input.plasma = 0;
+    s.input.n2 = 0;
     
     %solution tolerances for ODE calls
     s.input.RelTol = 1e-3;
