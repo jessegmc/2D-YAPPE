@@ -19,10 +19,10 @@ function [s] = input_deck_YAPPE()
     s.input.infield.f = inf; %focusing length in cm (used in gauss)
 
     %choose propagation medium
-    s.input.medium = 'water';
+    s.input.medium = 'air';
     
     %specify output path and output period
-    s.input.outpath = '~/YAPPE_outputs/Kolesik Water Simulations3/run 1/'; %output path
+    s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D air\Run2\'; %output path
     s.input.outperiod = .05; %output period in cm
     
     %toggle dispersion, plasma and n2 propagation modules
