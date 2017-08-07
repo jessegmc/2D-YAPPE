@@ -10,7 +10,8 @@ s.input.r_pts = 600; %number of pts along radial direction
 s.input.z_extent = 0.1; %extent of propagation in cm
 
 %load E-field options
-s.input.lambda_vac = 800e-7; %vacuum central wavelength in cm
+% % s.input.lambda_vac = 800e-7; %vacuum central wavelength in cm
+s.input.lambda_vac = 800e-9; %vacuum central wavelength in m
 s.input.infield.type = 'gauss'; %choose between 'gauss' and 'custom'
 s.input.infield.path = '~/matlab_scripts/hankel_FILA/E_in_example.mat'; %location of custom field
 s.input.infield.waist = 40e-4; %gaussian waist in cm (used in gauss)
@@ -22,7 +23,7 @@ s.input.infield.f = inf; %focusing length in cm (used in gauss)
 s.input.medium = 'water';
 
 %specify output path and output period
-s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE\Run33\'; %output path
+s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE mks\Run1\'; %output path
 s.input.outperiod = .05; %output period in cm
 
 %toggle dispersion, plasma and n2 propagation modules

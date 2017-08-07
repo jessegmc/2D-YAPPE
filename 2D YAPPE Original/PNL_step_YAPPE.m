@@ -19,10 +19,11 @@ E = ifft(Ef,[],2);
 E = s.f.H*E;
 
 %calculate intensity envelope
-s.f.I = abs(E).^2;
+% % s.f.I = abs(E).^2;
+s.f.I = 0.5*s.SI.c*s.g.n0*s.SI.eps_0*abs(E).^2;
 Ipow = s.f.I.^(s.mat.pow);
 
-%calculate plasma density in #/cm^3
+%calculate plasma density in #/m^3
 s.f.rho = zeros(size(s.f.I));
 
 if s.input.plasma == 1 %this toggles the plasma module
