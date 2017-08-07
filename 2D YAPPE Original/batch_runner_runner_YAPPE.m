@@ -13,7 +13,7 @@ global s
 maindir = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE\Run33\';
 if exist(maindir,'file')==0
     mkdir(maindir);
-end  
+end
 cd(maindir)
 
 %generate the master input struct
@@ -22,7 +22,7 @@ save('input_master.mat', 's');
 
 % xipts = [1 2 .5 2 .5 1 1 1 1 1];
 % Txi = [1 1 1 2 .5 1 1 1 1 1];
- 
+
 % rpts = [1 1 1 1 1 2 .5 2 .5 1];
 % Tr = [1 1 1 1 1 1 1 2 .5 1];
 
@@ -32,24 +32,24 @@ save('input_master.mat', 's');
 % runs = 1:length(energ);
 tic;
 % for m = runs
-% 
-%     
+%
+%
 %     s.input.infield.energ = energ(m);
-%     
+%
 % %     s.input.xi_pts = xipts(m)*s.input.xi_pts;
 % %     s.input.xi_extent = Txi(m)*s.input.xi_extent;
-% %     
+% %
 % %     s.input.r_pts = rpts(m)*s.input.r_pts;
 % %     s.input.r_extent = Tr(m)*s.input.r_extent;
-%     
+%
 % %     if m == 10
 % %         s.input.freqbd = 0;
 % %     end
-%     
-%     s.input.outpath = strcat(maindir,'run',32, num2str(m),'/');    
-%     
+%
+%     s.input.outpath = strcat(maindir,'run',32, num2str(m),'/');
+%
 %     m
-%   
+%
 % end
 load('input_master.mat')
 batch_runner_YAPPE();
