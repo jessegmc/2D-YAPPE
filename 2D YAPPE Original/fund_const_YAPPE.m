@@ -1,5 +1,5 @@
 %this function loads in a bunch of fundamental constants in SI units into
-%s.fundSI and cgs versions in s.cgs.
+%s.fundSI
 
 function[s] = fund_const_YAPPE(s)
 
