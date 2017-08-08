@@ -7,7 +7,7 @@ function[s] = gauss_maker_YAPPE(s)
 
 %create radial and temporal axes - (oversample)
 s.input.xi_in = linspace(0, s.input.xi_extent, 10*s.input.xi_pts); %local time axis in seconds
-s.input.r_in = linspace(0, s.input.r_extent, 10*s.input.r_pts)'; %local time axis in seconds
+s.input.r_in = linspace(0, s.input.r_extent, 10*s.input.r_pts)'; %local radial axis in meters
 dxi = s.input.xi_in(2)-s.input.xi_in(1);
 dr = s.input.r_in(2) - s.input.r_in(1);
 

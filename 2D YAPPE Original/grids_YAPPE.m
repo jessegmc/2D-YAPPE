@@ -3,8 +3,10 @@
 function [s] = grids_YAPPE(s)
 
 %lab frame axis properties
-s.g.z_range = s.input.z_extent; %propagation range in cm
-s.g.zout = 0:s.input.outperiod:s.g.z_range; %output propagation locations in cm
+% % s.g.z_range = s.input.z_extent; %propagation range in cm
+s.g.z_range = s.input.z_extent; %propagation range in m
+% % s.g.zout = 0:s.input.outperiod:s.g.z_range; %output propagation locations in cm
+s.g.zout = 0:s.input.outperiod:s.g.z_range; %output propagation locations in m
 
 %local time axis grid and grid properties
 s.g.xi_range = s.input.xi_extent; %temporal range in seconds
@@ -20,17 +22,18 @@ s.g.omg = s.g.omg + s.g.omg_cen; %center axis about central frequency
 s.g.omg = ifftshift(s.g.omg,2); %shift the axis
 
 %wavenumbers
-s.g.kvac = s.g.omg/s.SI.c; %vaccuum wavenumbers
+s.g.kvac = s.g.omg/s.SI.c; %vaccuum wavenumbers (1/m)
 s = dispersion_YAPPE(s); %get permittivity
 s.g.n = sqrt(s.g.perm); %linear index
 s.g.n0 = s.g.n(1); %central index
-s.g.k = s.g.omg.*s.g.n/s.SI.c; %medium wavenumbers
-s.g.kcen = s.g.k(1); %central medium wavenumber
-s.g.vg = ( (s.g.k(2) - s.g.k(end))/(2*s.g.domg) )^(-1); %group velocity
+s.g.k = s.g.omg.*s.g.n/s.SI.c; %medium wavenumbers (1/m)
+s.g.kcen = s.g.k(1); %central medium wavenumber (1/m)
+s.g.vg = ( (s.g.k(2) - s.g.k(end))/(2*s.g.domg) )^(-1); %group velocity (m/s)
 
 %transverse spatial grid and grid properties
-s.g.r_pts = s.input.r_pts; %radial window length in cm
-s.g.r_extent = s.input.r_extent;
+% % s.g.r_pts = s.input.r_pts; %radial window length in cm
+s.g.r_extent = s.input.r_extent; %radial window length in m
+s.g.r_pts = s.input.r_pts; 
 s = hankel_sample_YAPPE(s); %this generates the bessel zero-spaced radial grid
 
 end

@@ -28,7 +28,7 @@ s.f.Q = bsxfun(@times, s.g.omg.^2/s.SI.c^2, 1./s.f.Kz);
 
 %calculate linear propagator (handles diffraction and dispersion)
 s.f.Kz_move = bsxfun(@minus, s.f.Kz, s.g.omg/s.g.vg);
-s.f.lin_prop = exp(1i*s.input.outperiod*s.f.Kz_move);
+s.f.lin_prop = exp(1i*s.input.outperiod/1e2*s.f.Kz_move);
 
 %coefficients used in calculating ionization
 % % m2tocm2 = 1e4;

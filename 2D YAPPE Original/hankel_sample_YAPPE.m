@@ -15,7 +15,7 @@ s.g.aM = a(end); %this is the last 0
 s.g.bzero = a(1:end-1); %all but last zero
 s.g.r = s.g.r_extent*s.g.bzero/s.g.aM; %radial axis sampled at j_0 zeros
 temp = [0; s.g.r];
-s.g.dr = diff(temp); %radial spacings
+s.g.dr = diff(temp); %radial spacings (m)
 
 %calculate the wavevectors of the nonlinearly sampled radial axis
 Rmax = s.g.r(1)*s.g.aM/s.g.bzero(1);

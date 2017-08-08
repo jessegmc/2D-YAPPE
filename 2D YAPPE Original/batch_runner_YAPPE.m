@@ -43,7 +43,7 @@ for m = 2:length(s.g.zout)
     s.f.rho_out_r(:,m) = squeeze(sum(s.f.rho*s.g.dxi,2)); %radially resolved time integrated plasma density
     s.f.rho_out_xi(:,m) = squeeze(s.f.rho(1,:)); %axial lineout of plasma density
     
-    disp(strcat( 'propagated to z =', 32, num2str(s.g.zout(m)), 32, 'cm'))
+    disp(strcat( 'propagated to z =', 32, num2str(s.g.zout(m)), 32, 'm'))
     
 end
 
