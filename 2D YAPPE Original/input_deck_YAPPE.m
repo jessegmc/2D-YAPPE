@@ -9,7 +9,7 @@ s.input.xi_pts = 300; %number of pts along axial direction
 s.input.r_extent = .2*1e-2; %radial window length in m
 s.input.r_pts = 600; %number of pts along radial direction
 % % s.input.z_extent = 0.05; %extent of propagation in cm
-s.input.z_extent = 0.5*1e-2; %extent of propagation in m
+s.input.z_extent = 1*1e-2; %extent of propagation in m
 
 %load E-field options
 % % s.input.lambda_vac = 800e-7; %vacuum central wavelength in cm
@@ -19,7 +19,7 @@ s.input.infield.path = '~/matlab_scripts/hankel_FILA/E_in_example.mat'; %locatio
 % % s.input.infield.waist = 40e-4; %gaussian waist in cm (used in gauss)
 s.input.infield.waist = 40e-4*1e-2; %gaussian waist in m (used in gauss)
 s.input.infield.tfwhm = 40e-15; %intensity fwhm in s (used in gauss)
-s.input.infield.energ = .5e-6*(0.5*3e8*1.3282*8.854e-12); %beam energy in J (used in gauss)
+s.input.infield.energ = .5e-6; %beam energy in J (used in gauss)
 % % s.input.infield.f = inf; %focusing length in cm (used in gauss)
 s.input.infield.f = inf; %focusing length in m (used in gauss)
 
@@ -27,7 +27,7 @@ s.input.infield.f = inf; %focusing length in m (used in gauss)
 s.input.medium = 'water';
 
 %specify output path and output period
-s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE mks\Run5\'; %output path
+s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE mks\Run1\'; %output path
 % % s.input.outperiod = .05; %output period in cm
 s.input.outperiod = .05*1e-2; %output period in m
 
