@@ -20,7 +20,6 @@ Et(1,:) = exp(-((s.input.xi_in - s.input.xi_in(end)/2)/tau).^2);
 E = bsxfun(@times,Er,Et);
 
 % %normalize gaussian to create desired energy (assumes I = abs(E.^2) and integral of I = energy)
-% % I = abs(E.^2);
 I = 0.5*s.SI.c*s.g.n0*s.SI.eps_0*abs(E.^2);
 nom_energ = 2*pi*dr*dxi*sum(sum(bsxfun(@times,I,s.input.r_in)));
 s.input.E_in = sqrt(s.input.infield.energ/nom_energ)*E;
