@@ -1,5 +1,5 @@
 # YAPPE
-This version of 2D YAPPE uses the mks SI unit system, as opposed to "cm"/k/s which the original one used
+This version of 2D YAPPE uses the mks SI unit system, as opposed to "cm"/k/s which the original version used
 
 Enter input parameters into "input_deck_YAPPE.m". "Input_notes.txt" is a good starting point for the input parameters.
 
