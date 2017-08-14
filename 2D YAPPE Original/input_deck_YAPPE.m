@@ -22,7 +22,7 @@ s.input.infield.f = inf; %focusing length in m (used in gauss)
 s.input.medium = 'water';
 
 %specify output path and output period
-s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE mks\Run2\'; %output path
+s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE mks\Run3\'; %output path
 % % s.input.outperiod = .05; %output period in cm
 s.input.outperiod = .05*1e-2; %output period in m
 
