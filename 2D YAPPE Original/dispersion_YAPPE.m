@@ -12,7 +12,7 @@ lam = 2*pi*c./s.g.omg; %wavelength (must be in microns)
 %the experimental data from 1 to 4 PHz. From: "Refraction correction for
 %fluorescence spectra of squeous solutions".
 
-if s.input.medium == 'water'
+if strcmp(s.input.medium,'water')
     
     %water dispersion formula comes from "Refraction correction for
     %fluorescence spectra of aqueous solutions" - it is the same
@@ -25,7 +25,7 @@ if s.input.medium == 'water'
     
     s.g.perm = a1 + b1*lam + c1*lam.^2 + d1./(lam.^2 + d2);
     
-elseif s.input.medium == 'SF11'
+elseif strcmp(s.input.medium, 'SF11')
     
     %SF11 dispersion comes from Sellmeier formula on
     %refractiveindex.info
@@ -38,10 +38,22 @@ elseif s.input.medium == 'SF11'
     
     s.g.perm = 1 + a1*lam.^2./(lam.^2 - a2) + b1*lam.^2./(lam.^2 - b2) + c1*lam.^2./(lam.^2 - c2);
     
-elseif s.input.medium == 'vaccuum'
+elseif strcmp(s.input.medium,'vaccuum')
     
     s.g.perm = ones(size(s.g.omg));
+        
+elseif strcmp(s.input.medium,'air')
     
+    %air dispersion comes from refractiveindex.info
+    %a1,b1 are in micron^-2
+    %a2,b2 are in micron^2
+    a1 = 0.05792105;
+    a2 = 238.0185;
+    b1 = 0.00167917;
+    b2 = 57.362;
+    
+    s.g.perm = (1+a1./(a2-lam.^-2)+b1./(b2-lam.^-2)).^2;
+
 end
 
 if s.input.dispersion == 0

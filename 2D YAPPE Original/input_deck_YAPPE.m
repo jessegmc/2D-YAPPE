@@ -19,10 +19,10 @@ s.input.infield.energ = .5e-6; %beam energy in J (used in gauss)
 s.input.infield.f = inf; %focusing length in m (used in gauss)
 
 %choose propagation medium
-s.input.medium = 'water';
+s.input.medium = 'air';
 
 %specify output path and output period
-s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE mks\Run3\'; %output path
+s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D air SI\Run1\'; %output path
 % % s.input.outperiod = .05; %output period in cm
 s.input.outperiod = .05*1e-2; %output period in m
 

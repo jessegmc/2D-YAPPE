@@ -20,19 +20,28 @@ E = s.f.H*E;
 
 %calculate intensity envelope
 s.f.I = 0.5*s.SI.c*s.g.n0*s.SI.eps_0*abs(E).^2;
-Ipow = s.f.I.^(s.mat.pow);
 
 %calculate plasma density in #/m^3
 s.f.rho = zeros(size(s.f.I));
+s.f.rhoN2 = zeros(size(s.f.I));
+s.f.rhoO2 = zeros(size(s.f.I));
+
+%Plasma density is calculated from MPI with a prefactor and scaling term
+%which accounts for tunneling and MPI in the 10-100 TW/cm^2 regime
+%The model is fitted so N2 absorbs 7.5 photons and O2 absorbs 6.5 photons.
 
 if s.input.plasma == 1 %this toggles the plasma module
     for m = 2:size(s.f.rho,2)
-        s.f.rho(:,m) = s.f.rho(:,m-1) + s.g.dxi*( s.ion.a1*s.f.I(:,m-1).*s.f.rho(:,m-1) + s.ion.a2*Ipow(:,m-1) + s.ion.a3*s.f.rho(:,m-1).^2 );
+        rateN2 = s.mat.R_N2*(s.f.I(:,m-1)/s.mat.IT).^s.mat.alpha_N2;
+        rateO2 = s.mat.R_O2*(s.f.I(:,m-1)/s.mat.IT).^s.mat.alpha_O2;
+        s.f.rhoN2(:,m) = s.mat.NO_N2*rateN2;
+        s.f.rhoO2(:,m) = s.mat.NO_O2*rateO2;
+        s.f.rho(:,m) = s.f.rho(:,m-1) +s.g.dxi*(s.f.rhoN2(:,m)+s.f.rhoO2(:,m));
     end
 end
 
 %calculate nonlinear susceptibility
-s.f.chiNL = s.input.n2*( s.NL.b1*s.f.I ) + s.input.plasma*( s.NL.b2*s.f.rho + s.NL.b3*s.f.I.^(s.mat.pow-1) );
+s.f.chiNL = s.input.n2*( s.NL.b1*s.f.I ) + s.input.plasma*( s.NL.b2*s.f.rho + s.NL.b3*(s.f.rhoN2*s.mat.Eg_N2+s.f.rhoO2*s.mat.Eg_O2)./s.f.I);
 
 %calculate nonlinear polarizability
 s.f.PNL = s.SI.eps_0*s.f.chiNL.*E;
