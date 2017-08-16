@@ -35,14 +35,14 @@ end
 s.f.chiNL = s.input.n2*( s.NL.b1*s.f.I ) + s.input.plasma*( s.NL.b2*s.f.rho + s.NL.b3*s.f.I.^(s.mat.pow-1) );
 
 %calculate nonlinear polarizability
-s.f.PNL = s.f.chiNL.*E;
+s.f.PNL = s.SI.eps_0*s.f.chiNL.*E;
 
 %convert nonlinear polarizability to spectral domain
 s.f.PNLf = fft(s.f.PNL,[],2);
 s.f.PNLf = s.f.H*s.f.PNLf;
 
 %z derivative in matrix form
-dEf_dz =  0.5*1i*s.f.Q.*s.f.PNLf.*exp(-1i*s.f.Kz_move*z);
+dEf_dz =  0.5/s.SI.eps_0*1i*s.f.Q.*s.f.PNLf.*exp(-1i*s.f.Kz_move*z);
 
 %z derivative in vector form
 dEf_dz_vec = dEf_dz(:);
