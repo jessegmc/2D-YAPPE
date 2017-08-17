@@ -4,27 +4,27 @@ function [s] = input_deck_YAPPE()
 
 %grid parameters
 s.input.xi_extent = 600*1e-15; %axial window length in seconds
-s.input.xi_pts = 300; %number of pts along axial direction
-s.input.r_extent = .2*1e-2; %radial window length in m
+s.input.xi_pts = 800; %number of pts along axial direction
+s.input.r_extent = 3e-3; %radial window length in m
 s.input.r_pts = 600; %number of pts along radial direction
-s.input.z_extent = 1*1e-2; %extent of propagation in m
+s.input.z_extent = 0.05; %extent of propagation in m
 
 %load E-field options
 s.input.lambda_vac = 800e-9; %vacuum central wavelength in m
 s.input.infield.type = 'gauss'; %choose between 'gauss' and 'custom'
-s.input.infield.path = '~/matlab_scripts/hankel_FILA/E_in_example.mat'; %location of custom field
-s.input.infield.waist = 40e-4*1e-2; %gaussian waist in m (used in gauss)
+s.input.infield.path = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D air SI\Run2\end_E_field.mat'; %location of custom field
+s.input.infield.waist = 1e-3; %gaussian waist in m (used in gauss)
 s.input.infield.tfwhm = 40e-15; %intensity fwhm in s (used in gauss)
-s.input.infield.energ = .5e-6; %beam energy in J (used in gauss)
+s.input.infield.energ = 1.5e-3; %beam energy in J (used in gauss)
 s.input.infield.f = inf; %focusing length in m (used in gauss)
 
 %choose propagation medium
 s.input.medium = 'air';
 
 %specify output path and output period
-s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D air SI\Run1\'; %output path
+s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D air SI\Run6\'; %output path
 % % s.input.outperiod = .05; %output period in cm
-s.input.outperiod = .05*1e-2; %output period in m
+s.input.outperiod = .05; %output period in m
 
 %toggle dispersion, plasma and n2 propagation modules
 s.input.dispersion = 1;

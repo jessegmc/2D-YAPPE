@@ -32,5 +32,5 @@ s.f.lin_prop = exp(1i*s.input.outperiod.*s.f.Kz_move);
 % % s.NL.betak = s.mat.N0*s.mat.sigk*s.mat.pow*s.SI.hbar*s.g.omg_cen;
 s.NL.b1 = 2*s.g.n0*s.mat.n2;
 s.NL.b2 = 1i*s.SI.e^2/(s.SI.eps_0*s.SI.m_e*s.g.omg_cen)/(1/s.mat.tau_c - 1i*s.g.omg_cen); %free electron induced susceptibility change
-s.NL.b3 = 1i*s.g.n0/s.g.kvac; %air b3
+s.NL.b3 = 1i*s.g.n0/s.g.kvac(1); %air b3
 end
