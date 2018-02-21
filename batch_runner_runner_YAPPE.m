@@ -10,7 +10,7 @@ close all
 global s
 
 %folder containing the outputs
-maindir = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE\Run33\';
+maindir = 'C:\Users\exx\Documents\MATLAB\Jesse UPPE\Outputs\2D water\Run4';
 if exist(maindir,'file')==0
     mkdir(maindir);
 end

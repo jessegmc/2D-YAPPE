@@ -2,7 +2,7 @@
 
 function [s] = medium_property_YAPPE(s)
 
-if s.input.medium == 'water'
+if strcmp(s.input.medium,'water')
     
     s.mat.tau_c = 1e-14; %electron collision time in seconds
     s.mat.N0 = 3.33e22; %number density of water in cm^-3
@@ -12,7 +12,7 @@ if s.input.medium == 'water'
     
     %         s.mat.n2 = 2.7e-16; %nonlinear index - used by Kolesik at 527 nm in cm^2/W
     s.mat.n2 = 1.9e-16; %nonlinear index - valid at 800nm in cm^2/W
-    
+        
 end
 
 end

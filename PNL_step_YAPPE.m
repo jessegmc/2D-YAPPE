@@ -11,12 +11,12 @@ function[dEf_dz_vec] = PNL_step_YAPPE(z,Ef_vec)
 global s
 
 %reshape Ef back into a matrix
-Ef = reshape(Ef_vec,s.input.r_pts,s.input.xi_pts);
-Ef = Ef.*exp(1i*s.f.Kz_move*z);
+Ef = reshape(Ef_vec,s.input.r_pts,s.input.xi_pts); %A~
+Ef = Ef.*exp(1i*s.f.Kz_move*z); %E~
 
 %convert to spatiotemporal domain
 E = ifft(Ef,[],2);
-E = s.f.H*E;
+E = s.f.H*E; %A_env
 
 %calculate intensity envelope
 s.f.I = abs(E).^2;
@@ -35,11 +35,11 @@ end
 s.f.chiNL = s.input.n2*( s.NL.b1*s.f.I ) + s.input.plasma*( s.NL.b2*s.f.rho + s.NL.b3*s.f.I.^(s.mat.pow-1) );
 
 %calculate nonlinear polarizability
-s.f.PNL = s.f.chiNL.*E;
+s.f.PNL = s.f.chiNL.*E; %PNL_env
 
 %convert nonlinear polarizability to spectral domain
 s.f.PNLf = fft(s.f.PNL,[],2);
-s.f.PNLf = s.f.H*s.f.PNLf;
+s.f.PNLf = s.f.H*s.f.PNLf; 
 
 %z derivative in matrix form
 dEf_dz =  0.5*1i*s.f.Q.*s.f.PNLf.*exp(-1i*s.f.Kz_move*z);

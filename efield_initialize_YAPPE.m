@@ -26,6 +26,6 @@ s.f.E = interp2(xi_in_mat,r_in_mat,s.input.E_in,s.g.xi,s.g.r);
 
 %also initialize the spectral electric field
 s.f.Ef = fft(s.f.E,[],2);
-s.f.Ef = s.f.H*s.f.Ef;
+s.f.Ef = s.f.H*s.f.Ef; %E~
 
 end
