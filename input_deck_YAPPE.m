@@ -18,11 +18,16 @@ s.input.infield.tfwhm = 40e-15; %intensity fwhm in s (used in gauss)
 s.input.infield.energ = .5e-6; %beam energy in J (used in gauss)
 s.input.infield.f = inf; %focusing length in cm (used in gauss)
 
+%frequency axis settings
+s.input.userSuppliedFreq = true; %if true, user supplies min and max frequencies. if false, user supplies time extent
+s.input.omg_min = 1; %min freq value of freq axis
+s.input.omg_max = 1; %max freq value of freq axis
+
 %choose propagation medium
 s.input.medium = 'water';
 
 %specify output path and output period
-s.input.outpath = 'C:\Users\exx\Documents\MATLAB\Jesse UPPE\Outputs\2D water\Run3\'; %output path
+s.input.outpath = 'C:\Users\exx\Documents\MATLAB\Jesse UPPE\Outputs\2D water freq\Run1\'; %output path
 s.input.outperiod = .05; %output period in cm
 
 %toggle dispersion, plasma and n2 propagation modules

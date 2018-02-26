@@ -15,13 +15,13 @@ dr = s.input.r_in(2) - s.input.r_in(1);
 tau = s.input.infield.tfwhm /sqrt(2*log(2));
 
 %create the desired gaussian shape
-Er(:,1) = exp(-(s.input.r_in/s.input.infield.waist).^2).*exp(-1i*s.g.k(1)*s.input.r_in.^2/(2*s.input.infield.f));
-Et(1,:) = exp(-((s.input.xi_in - s.input.xi_in(end)/2)/tau).^2);
-E = bsxfun(@times,Er,Et);
+Er_env(:,1) = exp(-(s.input.r_in/s.input.infield.waist).^2).*exp(-1i*s.g.k(1)*s.input.r_in.^2/(2*s.input.infield.f));
+Et_env(1,:) = exp(-((s.input.xi_in - s.input.xi_in(end)/2)/tau).^2);
+E_env = bsxfun(@times,Er_env,Et_env);
 
 %normalize gaussian to create desired energy (assumes I = abs(E.^2) and integral of I = energy)
-I = abs(E.^2);
+I = abs(E_env.^2);
 nom_energ = 2*pi*dr*dxi*sum(sum(bsxfun(@times,I,s.input.r_in)));
-s.input.E_in = sqrt(s.input.infield.energ/nom_energ)*E;
+s.input.E_in_env = sqrt(s.input.infield.energ/nom_energ)*E_env;
 
 end

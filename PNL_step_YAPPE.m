@@ -11,15 +11,15 @@ function[dEf_dz_vec] = PNL_step_YAPPE(z,Ef_vec)
 global s
 
 %reshape Ef back into a matrix
-Ef = reshape(Ef_vec,s.input.r_pts,s.input.xi_pts); %A~
-Ef = Ef.*exp(1i*s.f.Kz_move*z); %E~
+Ef = reshape(Ef_vec,s.input.r_pts,s.input.xi_pts);
+Ef = Ef.*exp(1i*s.f.Kz_move*z); %Apply linear propagator to shift z position of the pulse
 
 %convert to spatiotemporal domain
-E = ifft(Ef,[],2);
-E = s.f.H*E; %A_env
+E_env = ifft(Ef,[],2);
+E_env = s.f.H*E_env;
 
 %calculate intensity envelope
-s.f.I = abs(E).^2;
+s.f.I = abs(E_env).^2;
 Ipow = s.f.I.^(s.mat.pow);
 
 %calculate plasma density in #/cm^3
@@ -35,7 +35,7 @@ end
 s.f.chiNL = s.input.n2*( s.NL.b1*s.f.I ) + s.input.plasma*( s.NL.b2*s.f.rho + s.NL.b3*s.f.I.^(s.mat.pow-1) );
 
 %calculate nonlinear polarizability
-s.f.PNL = s.f.chiNL.*E; %PNL_env
+s.f.PNL = s.f.chiNL.*E_env; %PNL_env
 
 %convert nonlinear polarizability to spectral domain
 s.f.PNLf = fft(s.f.PNL,[],2);

@@ -22,10 +22,10 @@ end
 %interpolate the E_in onto the simulation xi and r grid points
 r_in_mat = bsxfun(@times,s.input.r_in,ones(size(s.input.xi_in)));
 xi_in_mat = bsxfun(@times,ones(size(s.input.r_in)),s.input.xi_in);
-s.f.E = interp2(xi_in_mat,r_in_mat,s.input.E_in,s.g.xi,s.g.r);
+s.f.E_env = interp2(xi_in_mat,r_in_mat,s.input.E_in,s.g.xi,s.g.r);
 
 %also initialize the spectral electric field
-s.f.Ef = fft(s.f.E,[],2);
-s.f.Ef = s.f.H*s.f.Ef; %E~
+s.f.Ef = fft(s.f.E_env,[],2);
+s.f.Ef = s.f.H*s.f.Ef; %The DFT of the envelope of E gives us Ef when viewed through our frequency axis 
 
 end

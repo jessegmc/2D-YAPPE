@@ -15,8 +15,8 @@ s = precompute_YAPPE(s); %precompute useful arrays (Hankel matrix, Kz, Q, variou
 s = efield_initialize_YAPPE(s); %generate input E-fields (spatiotemporal and spectral)
 
 %initialize outputs (helps with speed and acts as a check that there is enough memory for outputs)
-s.f.E_out = zeros(s.input.r_pts,s.input.xi_pts,length(s.g.zout)); %initialize output E-field matrix
-s.f.E_out(:,:,1) = s.f.E; %first entry is input field
+s.f.E_env_out = zeros(s.input.r_pts,s.input.xi_pts,length(s.g.zout)); %initialize output E-field matrix
+s.f.E_env_out(:,:,1) = s.f.E_env; %first entry is input field
 s.f.rho_out_r = zeros(s.input.r_pts,length(s.g.zout)); %initialize output plasma matrix
 s.f.rho_out_xi = zeros(s.input.xi_pts,length(s.g.zout)); %initialize output plasma matrix
 

@@ -10,7 +10,7 @@ close all
 global s
 
 %folder containing the outputs
-maindir = 'C:\Users\exx\Documents\MATLAB\Jesse UPPE\Outputs\2D water\Run4';
+maindir = 'C:\Users\exx\Documents\MATLAB\Jesse UPPE\Outputs\2D water freq\Run1';
 if exist(maindir,'file')==0
     mkdir(maindir);
 end
