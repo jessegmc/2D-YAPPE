@@ -49,7 +49,7 @@ if s.input.dispersion == 0
     
     %flat dispersion with the permittivity of the central wavelength
     %applied to all wavelengths
-    s.g.perm = s.g.perm(1)*ones(size(s.g.omg));
+    s.g.perm = s.g.perm(s.g.omg_cen_loc)*ones(size(s.g.omg));
     
 end
 
