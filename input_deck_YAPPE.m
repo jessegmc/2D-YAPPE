@@ -7,7 +7,7 @@ s.input.xi_extent = 600*1e-15; %axial window length in seconds
 s.input.xi_pts = 300; %number of pts along axial direction
 s.input.r_extent = .2; %radial window length in cm
 s.input.r_pts = 600; %number of pts along radial direction
-s.input.z_extent = 0.1; %extent of propagation in cm
+s.input.z_extent = 0.5; %extent of propagation in cm
 
 %load E-field options
 s.input.lambda_vac = 800e-7; %vacuum central wavelength in cm
@@ -18,17 +18,26 @@ s.input.infield.tfwhm = 40e-15; %intensity fwhm in s (used in gauss)
 s.input.infield.energ = .5e-6; %beam energy in J (used in gauss)
 s.input.infield.f = inf; %focusing length in cm (used in gauss)
 
+%frequency axis settings
+s.input.userSuppliedFreqAxis = false; %if true, user supplies min and max frequencies. if false, user supplies time extent
+s.input.omg_min = 7.853981633974480e+14; %min freq value of freq axis
+s.input.omg_max = 3.916518841475275e+15; %max freq value of freq axis
+s.input.omg_min = s.input.omg_min+18*1.047197551196598e+13; %min freq value of freq axis
+s.input.omg_max = s.input.omg_max+18*1.047197551196598e+13; %max freq value of freq axis
+
+
 %choose propagation medium
 s.input.medium = 'water';
 
+
 %specify output path and output period
-s.input.outpath = 'R:\Jesse GPU\MATLAB\YAPPE Output\2D\2D YAPPE\Run33\'; %output path
+s.input.outpath = 'C:\Users\exx\Documents\MATLAB\Jesse UPPE\Outputs\2D water freq\Run53\'; %output path
 s.input.outperiod = .05; %output period in cm
 
 %toggle dispersion, plasma and n2 propagation modules
 s.input.dispersion = 1;
-s.input.plasma = 0;
-s.input.n2 = 0;
+s.input.plasma = 1;
+s.input.n2 = 1;
 
 %solution tolerances for ODE calls
 s.input.RelTol = 1e-3;

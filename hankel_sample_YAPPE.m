@@ -8,7 +8,7 @@ bessj0 = @(x) besselj(0,x); %bessel j_0 function handle
 
 a = zeros(s.input.r_pts+1,1);
 for n = 1:(s.input.r_pts+1)
-    a(n) = fzero(bessj0,[(n-1) n]*pi); %find the firts s.pts+1 zeros of j_0
+    a(n) = fzero(bessj0,[(n-1) n]*pi); %find the first s.pts+1 zeros of j_0
 end
 
 s.g.aM = a(end); %this is the last 0
